@@ -15,7 +15,7 @@ function GradesTable() {
             </thead>
             <tbody>
             {rows.map(([name, grades]) =>
-                <StudentRow name={name} grades={grades}/>
+                <StudentRow key={name} name={name} grades={grades}/>
             )}
             </tbody>
         </table>
