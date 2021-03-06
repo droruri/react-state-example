@@ -1,25 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+
+const grades = {
+    columns: [
+        "Math",
+        "Physics",
+        "Sports"
+    ],
+    rows: {
+        "adam": [
+            58, 71, 99
+        ],
+        "daniel": [
+            88, 89, 59
+        ],
+        "mark": [
+            83, 91, 77
+        ],
+    }
+}
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                {grades.columns.map(col => <th key={col}>{col}</th>)}
+            </tr>
+            </thead>
+            <tbody>
+            {Object.entries(grades.rows).map(([name, grades]) => {
+                return (
+                    <tr key={name}>
+                        <td>{name}</td>
+                        {grades.map((grade, index) => <td key={index}>
+                            <input defaultValue={grade} type="text"/>
+                        </td>)}
+                    </tr>
+                )
+            })}
+            </tbody>
+        </table>
+    );
 }
 
 export default App;
