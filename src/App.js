@@ -1,10 +1,10 @@
 import './App.css';
 import React from "react";
-import GradesTable from "./GradesTable.component";
+import {GradesWrapper} from "./GradesContext";
 
 function App() {
     return (
-        <GradesTable/>
+        <GradesWrapper/>
     );
 }
 

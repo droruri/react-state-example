@@ -6,9 +6,11 @@ function StudentRow({name, grades}) {
     return (
         <tr key={name}>
             <td>{name}</td>
-            {grades.map((grade, index) => <td key={index}>
-                <Grade grade={grade}/>
-            </td>)}
+            {grades.map((grade, index) => (
+                <td key={index}>
+                    <Grade name={name} index={index} grade={grade}/>
+                </td>
+            ))}
             <td><Avg grades={grades}/></td>
         </tr>
     )

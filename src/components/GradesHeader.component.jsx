@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
+import {GradesContext} from "../GradesContext";
 
-function GradesHeader({cols}) {
+function GradesHeader() {
+    const {grades} = useContext(GradesContext);
+
     return (
         <tr>
             <th></th>
-            {cols.map(col => <th key={col}>{col}</th>)}
+            {grades.columns.map(col => <th key={col}>{col}</th>)}
         </tr>
     )
 }
